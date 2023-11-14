@@ -17,6 +17,6 @@ const schema = new mongoose.Schema(
   { versionKey: false }
 );
 
-const Post = mongoose.models.Post || mongoose.model("Post", schema);
+const Post = mongoose.models?.Post || mongoose.model("Post", schema);
 
 export default Post;

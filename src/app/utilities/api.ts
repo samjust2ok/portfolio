@@ -1,9 +1,11 @@
+import { connect } from "@/database/connection";
 import { BASE_API_URL } from "../constants/general";
 import {
   Comment,
   CreateCommentInterface,
   PostInterface,
 } from "../constants/interfaces";
+import Post from "@/models/post";
 
 class HttpError extends Error {
   message: string;
@@ -35,8 +37,18 @@ async function request<T>(
 }
 
 export async function getBlogPosts(): Promise<PostInterface[]> {
-  const posts = await request<PostInterface[]>("/posts");
-  return posts;
+  try {
+    await connect();
+    const posts = await Post.aggregate([
+      { $match: {} },
+      { $addFields: { comments_count: { $size: "$comments" } } },
+      { $project: { comments: 0, content: 0 } },
+      { $sort: { date_created: -1 } },
+    ]);
+    return posts;
+  } catch (e) {
+    throw e;
+  }
 }
 
 export async function getBlogPost(id: string): Promise<PostInterface> {
