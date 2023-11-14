@@ -1,8 +1,8 @@
 "use client";
 
-import { BlogHeader } from "@/app/components/blog-header";
-import { Drawer } from "@/app/components/drawer";
-import { Header } from "@/app/components/header";
+import { BlogHeader } from "@/components/blog-header";
+import { Drawer } from "@/components/drawer";
+import { Header } from "@/components/header";
 import { PropsWithChildren, ReactNode, useState } from "react";
 
 type PageWrapperInterface = PropsWithChildren<{

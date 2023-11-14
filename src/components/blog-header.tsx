@@ -9,9 +9,9 @@ import {
   useRef,
   useState,
 } from "react";
-import { formatDate } from "../utilities/helpers";
+import { formatDate } from "../app/utilities/helpers";
 import { Icon } from "./icon";
-import { addReactionToPost, getBlogPost } from "../utilities/api";
+import { addReactionToPost, getBlogPost } from "../app/utilities/api";
 import { ReactionButton } from "./reaction-button";
 import { LikeIcon } from "./like-icon";
 
@@ -41,9 +41,7 @@ export function BlogHeader({
   onOpenChat: () => void;
 }) {
   const { data } = useSWR(["posts", id], ([_, id]) => getBlogPost(id));
-  const [isAtTop, setIsAtTop] = useState(
-    document.documentElement.scrollTop > 140
-  );
+  const [isAtTop, setIsAtTop] = useState(false);
   const [likes, setLikes] = useState(data?.likes || 0);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const scrollableHeaderRef = useRef<HTMLDivElement | null>(null);

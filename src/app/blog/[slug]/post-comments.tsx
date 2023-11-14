@@ -1,5 +1,5 @@
 import { unstable_serialize as serializeSWRKey } from "swr";
-import { ScrollArea } from "@/app/components/scroll-area";
+import { ScrollArea } from "@/components/scroll-area";
 import { SWRProvider } from "@/app/swr/provider";
 import { getBlogPostComments } from "@/app/utilities/api";
 import { Comments } from "./comments";

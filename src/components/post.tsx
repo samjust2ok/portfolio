@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { PostInterface } from "../constants/interfaces";
-import { formatDate } from "../utilities/helpers";
+import { PostInterface } from "../app/constants/interfaces";
+import { formatDate } from "../app/utilities/helpers";
 import { Tag } from "./tag";
 
 export function Post({ post }: { post: PostInterface }) {

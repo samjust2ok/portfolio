@@ -1,15 +1,16 @@
 "use client";
 import ReactDOM from "react-dom";
 import useSWR, { useSWRConfig } from "swr";
-import { CommentInput } from "@/app/components/comment-input";
+import { CommentInput } from "@/components/comment-input";
 import {
   createContext,
   PropsWithChildren,
   useContext,
+  useEffect,
   useRef,
   useState,
 } from "react";
-import { CommentsList } from "@/app/components/comments-list";
+import { CommentsList } from "@/components/comments-list";
 import { Suspense } from "react";
 import { getRandomNumber, randomString } from "@/app/utilities/helpers";
 import { APP_USER_NAME, COLORS } from "@/app/constants/general";
@@ -98,7 +99,10 @@ const UserContext = createContext<{
 } | null>(null);
 
 const UserProvider = ({ children }: PropsWithChildren) => {
-  const [user, setUser] = useState(localStorage[APP_USER_NAME]);
+  const [user, setUser] = useState("");
+  useEffect(() => {
+    setUser(localStorage[APP_USER_NAME]);
+  }, []);
   return (
     <UserContext.Provider
       value={{

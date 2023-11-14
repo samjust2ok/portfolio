@@ -1,10 +1,10 @@
 import { Metadata } from "next";
 import Image from "next/image";
-import { ArticlesList } from "./components/articles-list";
-import { AutoScrollText } from "./components/auto-scroll-text";
-import { Bubbles } from "./components/bubbles";
-import { Header } from "./components/header";
-import Slide from "./components/slider";
+import { ArticlesList } from "@/components/articles-list";
+import { AutoScrollText } from "@/components/auto-scroll-text";
+import { Bubbles } from "@/components/bubbles";
+import { Header } from "@/components/header";
+import Slide from "@/components/slider";
 import { getBlogPosts } from "./utilities/api";
 
 export const metadata: Metadata = {

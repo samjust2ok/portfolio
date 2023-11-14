@@ -1,4 +1,4 @@
-import { PostInterface } from "../constants/interfaces";
+import { PostInterface } from "../app/constants/interfaces";
 import { Article } from "./article";
 
 export function ArticlesList({ articles }: { articles: PostInterface[] }) {

@@ -4,23 +4,26 @@ import { useSWRConfig } from "swr";
 import classNames from "classnames";
 import { useMemo, useState } from "react";
 import ReactDOM from "react-dom";
-import { Comment as CommentInterface, Reply } from "../constants/interfaces";
+import {
+  Comment as CommentInterface,
+  Reply,
+} from "../app/constants/interfaces";
 import {
   formatDate,
   getRandomNumber,
   randomString,
-} from "../utilities/helpers";
+} from "../app/utilities/helpers";
 import { CommentInput } from "./comment-input";
 import { Icon } from "./icon";
-import { COLORS } from "../constants/general";
+import { COLORS } from "../app/constants/general";
 import {
   addReactionToComment,
   addReactionToReply,
   addReplyToComment,
-} from "../utilities/api";
+} from "../app/utilities/api";
 import { ReactionButton } from "./reaction-button";
 import { LikeIcon } from "./like-icon";
-import { useAppUser } from "../blog/[slug]/comments";
+import { useAppUser } from "../app/blog/[slug]/comments";
 
 const getUpdatedComments = (
   old: CommentInterface[],

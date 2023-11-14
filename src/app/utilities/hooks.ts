@@ -65,7 +65,7 @@ export function useSound(src: string) {
   }, [src]);
 
   const play = useCallback(() => {
-    // audio.current?.play();
+    audio.current?.play();
   }, []);
 
   return play;

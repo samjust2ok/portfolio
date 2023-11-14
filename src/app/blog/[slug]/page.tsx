@@ -1,6 +1,6 @@
 import { unstable_serialize as serializeSWRKey } from "swr";
-import BlogPostRenderer from "@/app/components/blog-post-renderer";
-import { Tag } from "@/app/components/tag";
+import BlogPostRenderer from "@/components/blog-post-renderer";
+import { Tag } from "@/components/tag";
 import { SWRProvider } from "@/app/swr/provider";
 import { getBlogPost, getBlogPosts } from "@/app/utilities/api";
 import Image from "next/image";
@@ -26,7 +26,6 @@ export default async function Page({ params }: PageI) {
 
   return (
     <SWRProvider value={{ fallback: { [key]: post } }}>
-      {/* @ts-expect-error Server Component */}
       <PageWrapper comments={<PostComments id={id} />} id={id}>
         <div className="blog-content blog-content-container">
           <div className="rounded-sm overflow-hidden h-[300px] md:h-[450px] bg-secondary-color">

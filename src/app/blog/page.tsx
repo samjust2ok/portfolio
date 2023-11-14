@@ -1,7 +1,7 @@
 import { Metadata, ResolvingMetadata } from "next";
-import { AllBlogPosts } from "../components/all-blog-posts";
-import { Header } from "../components/header";
-import { RecentBlogPosts } from "../components/recent-blog-posts";
+import { AllBlogPosts } from "@/components/all-blog-posts";
+import { Header } from "@/components/header";
+import { RecentBlogPosts } from "@/components/recent-blog-posts";
 import { getBlogPosts } from "../utilities/api";
 
 type Props = {

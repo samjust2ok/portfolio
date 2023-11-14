@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PostInterface } from "../constants/interfaces";
+import { PostInterface } from "../app/constants/interfaces";
 import { Lit } from "./lits";
 import { Tag } from "./tag";
 

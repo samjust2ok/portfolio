@@ -113,9 +113,3 @@ export async function addReactionToReply(
     }
   );
 }
-
-// FAILURE TESTING FUNCTION >>>>>>>>>>>>>>> DELETEEEEEEEE
-async function throwErrorAfter(d: number) {
-  await new Promise((res) => setTimeout(res, d));
-  throw Error();
-}
