@@ -6,6 +6,9 @@ import {
   PostInterface,
 } from "../constants/interfaces";
 import Post from "@/models/post";
+import { IdValidationSchema } from "../constants/validation-schemas";
+import { isValidObjectId } from "./helpers";
+import { Error404 } from "./error-utils";
 
 class HttpError extends Error {
   message: string;
@@ -49,11 +52,32 @@ export async function getBlogPosts(): Promise<PostInterface[]> {
   } catch (e) {
     throw e;
   }
+  // const posts = await request<PostInterface[]>("/posts");
+  // return posts;
 }
 
 export async function getBlogPost(id: string): Promise<PostInterface> {
-  const post = await request<PostInterface>(`/posts/${id}`);
-  return post;
+  try {
+    await connect();
+
+    const postId = id;
+
+    IdValidationSchema.parse(postId);
+
+    const query = isValidObjectId(postId) ? { _id: postId } : { id: postId };
+    const post = await Post.aggregate([
+      { $match: query },
+      { $addFields: { comments_count: { $size: "$comments" } } },
+      { $project: { comments: 0 } },
+    ]);
+    if (!post) throw Error404(postId);
+
+    return JSON.parse(JSON.stringify(post[0]));
+  } catch (error) {
+    throw error;
+  }
+  // const post = await request<PostInterface>(`/posts/${id}`);
+  // return post;
 }
 
 export async function getBlogPostComments(id: string): Promise<Array<Comment>> {

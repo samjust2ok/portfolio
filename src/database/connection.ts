@@ -18,8 +18,6 @@ export async function connect() {
 
     if (!uri) throw new Error("Invalid mongodb URI");
 
-    console.log(uri);
-
     const promise = (global._mongoose.promise = mongoose.connect(uri, {
       dbName,
     }));
