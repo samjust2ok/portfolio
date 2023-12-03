@@ -12,13 +12,6 @@ interface PageI {
   params: { slug: string };
 }
 
-export async function generateStaticParams() {
-  const posts = await getBlogPosts();
-  return posts.map((post) => ({
-    slug: post.id,
-  }));
-}
-
 export default async function Page({ params }: PageI) {
   const id = decodeURIComponent(params.slug);
   const post = await getBlogPost(id);
