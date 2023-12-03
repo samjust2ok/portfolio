@@ -1,6 +1,6 @@
 "use client";
 import { useMemo } from "react";
-import { generateSplit, getAttributeValue } from "../app/utilities/helpers";
+import { generateSplit, getAttributeValue } from "../utilities/helpers";
 import { Sandbox, Codeblock, Markup } from "./blog-post-renderer-bits";
 
 interface RendererProps {

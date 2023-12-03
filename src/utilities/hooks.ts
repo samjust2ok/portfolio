@@ -1,6 +1,6 @@
 "use client";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { APP_USER_NAME } from "../constants/general";
+import { APP_USER_NAME } from "../app/constants/general";
 import { throttle } from "./helpers";
 
 export function useInterval(cb: Function, duration: number | null) {

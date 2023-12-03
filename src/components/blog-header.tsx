@@ -9,11 +9,11 @@ import {
   useRef,
   useState,
 } from "react";
-import { formatDate } from "../app/utilities/helpers";
 import { Icon } from "./icon";
-import { addReactionToPost, getBlogPost } from "../app/utilities/api";
 import { ReactionButton } from "./reaction-button";
 import { LikeIcon } from "./like-icon";
+import { formatDate } from "@/utilities/helpers";
+import { addReactionToPost, getBlogPost } from "@/app/api";
 
 const getClassName = (fixed: boolean) => {
   return {

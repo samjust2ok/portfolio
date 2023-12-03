@@ -12,7 +12,7 @@ import {
   formatDate,
   getRandomNumber,
   randomString,
-} from "../app/utilities/helpers";
+} from "../utilities/helpers";
 import { CommentInput } from "./comment-input";
 import { Icon } from "./icon";
 import { COLORS } from "../app/constants/general";
@@ -20,7 +20,7 @@ import {
   addReactionToComment,
   addReactionToReply,
   addReplyToComment,
-} from "../app/utilities/api";
+} from "@/app/api";
 import { ReactionButton } from "./reaction-button";
 import { LikeIcon } from "./like-icon";
 import { useAppUser } from "../app/blog/[slug]/comments";

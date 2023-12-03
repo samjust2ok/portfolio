@@ -1,4 +1,4 @@
-import { AVERAGE_WORDS_PER_MINUTE } from "../constants/general";
+import { AVERAGE_WORDS_PER_MINUTE } from "../app/constants/general";
 import { ZodError } from "zod";
 
 export function formatDate(date: Date | string) {

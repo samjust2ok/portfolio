@@ -2,8 +2,8 @@
 import { LazyMotion, domAnimation, AnimatePresence } from "framer-motion";
 import { useMemo, useState } from "react";
 import { m } from "framer-motion";
-import { useInterval } from "../app/utilities/hooks";
 import classNames from "classnames";
+import { useInterval } from "@/utilities/hooks";
 interface AutoScrollTextI {
   texts: string[];
   className?: string;

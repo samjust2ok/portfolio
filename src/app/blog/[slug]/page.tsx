@@ -1,12 +1,12 @@
 import { unstable_serialize as serializeSWRKey } from "swr";
 import BlogPostRenderer from "@/components/blog-post-renderer";
 import { Tag } from "@/components/tag";
-import { SWRProvider } from "@/app/swr/provider";
-import { getBlogPost, getBlogPosts } from "@/app/utilities/api";
+import { getBlogPost, getBlogPosts } from "../../api";
 import Image from "next/image";
 import Link from "next/link";
 import { PageWrapper } from "./page-wrapper";
 import { PostComments } from "./post-comments";
+import { SWRProvider } from "@/swr/provider";
 
 interface PageI {
   params: { slug: string };

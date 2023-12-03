@@ -1,5 +1,5 @@
 import { Dispatch, ReactNode, SetStateAction, useRef } from "react";
-import { debounce } from "../app/utilities/helpers";
+import { debounce } from "@/utilities/helpers";
 
 interface ReactionButtonI {
   count: number;

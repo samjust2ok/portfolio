@@ -10,10 +10,10 @@ import {
 import {
   getAttributeValue,
   getHTMLPreElementContent,
-} from "../app/utilities/helpers";
+} from "@/utilities/helpers";
 import { Icon } from "./icon";
 import classNames from "classnames";
-import { useCopyToClipboard } from "../app/utilities/hooks";
+import { useCopyToClipboard } from "../utilities/hooks";
 import { ScrollArea } from "./scroll-area";
 
 interface RenderElementProps {

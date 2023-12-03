@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { getRandomNumber } from "../app/utilities/helpers";
-import { useSound, useWindowSize } from "../app/utilities/hooks";
+import { getRandomNumber } from "../utilities/helpers";
+import { useSound, useWindowSize } from "../utilities/hooks";
 
 const SPHERE_SRC = "sphere.png";
 const SPHERES_COUNT = 20;

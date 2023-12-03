@@ -1,9 +1,9 @@
 import { PostValidationSchema } from "@/app/constants/validation-schemas";
-import { handleRequestError } from "@/app/utilities/error-utils";
+import { handleRequestError } from "@/utilities/error-utils";
 import { connect } from "@/database/connection";
 import Post from "@/models/post";
 import { NextResponse, NextRequest } from "next/server";
-import { convertToSlug, estimateReadingTime } from "../../utilities/helpers";
+import { convertToSlug, estimateReadingTime } from "../../../utilities/helpers";
 
 export async function GET() {
   try {

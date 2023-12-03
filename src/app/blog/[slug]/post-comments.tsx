@@ -1,9 +1,9 @@
 import { unstable_serialize as serializeSWRKey } from "swr";
 import { ScrollArea } from "@/components/scroll-area";
-import { SWRProvider } from "@/app/swr/provider";
-import { getBlogPostComments } from "@/app/utilities/api";
+import { getBlogPostComments } from "../../api";
 import { Comments } from "./comments";
 import { CommentsHeader } from "./comments-header";
+import { SWRProvider } from "@/swr/provider";
 
 export async function PostComments({ id }: { id: string }) {
   const comments = await getBlogPostComments(id);

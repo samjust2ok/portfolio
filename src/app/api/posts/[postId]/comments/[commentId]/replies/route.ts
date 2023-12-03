@@ -2,8 +2,8 @@ import {
   CommentValidationSchema,
   IdValidationSchema,
 } from "@/app/constants/validation-schemas";
-import { handleRequestError, HttpError } from "@/app/utilities/error-utils";
-import { isValidObjectId } from "@/app/utilities/helpers";
+import { handleRequestError, HttpError } from "@/utilities/error-utils";
+import { isValidObjectId } from "@/utilities/helpers";
 import { connect } from "@/database/connection";
 import Post from "@/models/post";
 import { NextRequest, NextResponse } from "next/server";

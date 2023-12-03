@@ -5,7 +5,7 @@ import { AutoScrollText } from "@/components/auto-scroll-text";
 import { Bubbles } from "@/components/bubbles";
 import { Header } from "@/components/header";
 import Slide from "@/components/slider";
-import { getBlogPosts } from "./utilities/api";
+import { getBlogPosts } from "./api";
 
 export const metadata: Metadata = {
   title: "Felix Samuel",

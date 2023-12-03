@@ -12,9 +12,9 @@ import {
 } from "react";
 import { CommentsList } from "@/components/comments-list";
 import { Suspense } from "react";
-import { getRandomNumber, randomString } from "@/app/utilities/helpers";
+import { getRandomNumber, randomString } from "@/utilities/helpers";
 import { APP_USER_NAME, COLORS } from "@/app/constants/general";
-import { addCommentToPost, getBlogPostComments } from "@/app/utilities/api";
+import { addCommentToPost, getBlogPostComments } from "../../api";
 
 export function Comments({ id }: { id: string }) {
   return (

@@ -1,14 +1,14 @@
 import { connect } from "@/database/connection";
-import { BASE_API_URL } from "../constants/general";
+import { BASE_API_URL } from "../app/constants/general";
 import {
   Comment,
   CreateCommentInterface,
   PostInterface,
-} from "../constants/interfaces";
+} from "../app/constants/interfaces";
 import Post from "@/models/post";
-import { IdValidationSchema } from "../constants/validation-schemas";
-import { isValidObjectId } from "./helpers";
-import { Error404 } from "./error-utils";
+import { IdValidationSchema } from "../app/constants/validation-schemas";
+import { isValidObjectId } from "@/utilities/helpers";
+import { Error404 } from "@/utilities/error-utils";
 
 class HttpError extends Error {
   message: string;
@@ -50,34 +50,29 @@ export async function getBlogPosts(): Promise<PostInterface[]> {
     ]);
     return posts;
   } catch (e) {
+    console.log("ERROR SOURCE 1", e);
     throw e;
   }
-  // const posts = await request<PostInterface[]>("/posts");
-  // return posts;
 }
 
 export async function getBlogPost(id: string): Promise<PostInterface> {
   try {
     await connect();
+    IdValidationSchema.parse(id);
 
-    const postId = id;
-
-    IdValidationSchema.parse(postId);
-
-    const query = isValidObjectId(postId) ? { _id: postId } : { id: postId };
+    const query = isValidObjectId(id) ? { _id: id } : { id };
     const post = await Post.aggregate([
       { $match: query },
       { $addFields: { comments_count: { $size: "$comments" } } },
       { $project: { comments: 0 } },
     ]);
-    if (!post) throw Error404(postId);
+    if (!post) throw Error404(id);
 
     return JSON.parse(JSON.stringify(post[0]));
   } catch (error) {
+    console.log("ERROR SOURCE 2", error);
     throw error;
   }
-  // const post = await request<PostInterface>(`/posts/${id}`);
-  // return post;
 }
 
 export async function getBlogPostComments(id: string): Promise<Array<Comment>> {
