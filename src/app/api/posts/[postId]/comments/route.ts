@@ -53,10 +53,6 @@ export async function POST(request: NextRequest, context: Context) {
   }
 }
 
-function sortByDate(a: any, b: any) {
-  return b.date_created.valueOf() - a.date_created.valueOf();
-}
-
 export async function GET(request: Request, context: Context) {
   try {
     await connect();

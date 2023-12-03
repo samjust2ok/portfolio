@@ -70,14 +70,31 @@ export async function getBlogPost(id: string): Promise<PostInterface> {
 
     return JSON.parse(JSON.stringify(post[0]));
   } catch (error) {
-    console.log("ERROR SOURCE 2", error);
     throw error;
   }
 }
 
-export async function getBlogPostComments(id: string): Promise<Array<Comment>> {
-  const comments = await request<Array<Comment>>(`/posts/${id}/comments`);
-  return comments;
+function sortByDate(a: any, b: any) {
+  return b.date_created.valueOf() - a.date_created.valueOf();
+}
+
+export async function getBlogPostComments(
+  postId: string
+): Promise<Array<Comment>> {
+  await connect();
+
+  IdValidationSchema.parse(postId);
+
+  const query = isValidObjectId(postId) ? { _id: postId } : { id: postId };
+  const post = await Post.findOne(query);
+
+  if (!post) throw Error404(postId);
+
+  post.comments
+    .sort(sortByDate)
+    .map((comment: any) => comment.replies.sort(sortByDate));
+
+  return JSON.parse(JSON.stringify(post.comments));
 }
 
 export async function addCommentToPost(
